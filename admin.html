@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin felület</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="képek/ikon.jpg">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="fooldal.html">Kezdőlap</a></li>
+            <li><a href="rolunk.html">Rólunk</a></li>
+            <li><a href="admin.html">Fejlesztői felület</a></li>
+        </ul>
+    </nav>
+    <main style="padding:2em;">
+        <div id="loginBox">
+            <h2>Bejelentkezés</h2>
+            <form id="loginForm">
+                <label for="username">Felhasználónév:</label>
+                <input type="text" id="username" required>
+                <label for="password">Jelszó:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Belépés</button>
+            </form>
+            <p id="loginError" style="color:red; display:none; ">Hibás adatok!</p>
+        </div>
+        <div id="adminContent" style="display:none;">
+            <h1 class="admfel">Admin felület</h1>
+            <form id="postForm">
+                <div class="form-row">
+                    <label for="title">Cím:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <label for="content">Tartalom:</label>
+                <textarea id="content" name="content" rows="5" required></textarea>
+                <button type="submit" id="postFormBtn">Poszt létrehozása</button>
+            </form>
+            <p id="successMsg" style="color:green; display:none;">Poszt elmentve!</p>
+            <hr>
+            <h2 class="posztkez">Posztok kezelése</h2>
+            <div id="adminPosts"></div>
+        </div>
+    </main>
+</body>
+</html>
