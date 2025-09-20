@@ -1,0 +1,307 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 1.2em 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Alsó árnyék */
+    border-radius: 0 0 18px 18px; /* Csak az alsó sarkok lekerekítése */
+}
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Ez igazítja jobbra a gombokat */
+}
+.navbar li {
+    margin: 0 1em;
+}
+.navbar a {
+    color: #bbb; /* Világosabb szürke */
+    opacity: 0.7; /* Kevésbé feltűnő */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5em 0.2em;
+    transition: 
+        font-size 0.2s,
+        color 0.2s,
+        opacity 0.2s;
+    font-size: 1.2em;
+    position: relative;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.navbar a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background: #fff;
+    transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.navbar a:hover::after {
+    width: 100%;
+    right: 0;
+    left: auto;
+}
+
+/* Admin űrlap barátságosabb stílus */
+#postForm {
+    background: #f9f9fb;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2em 1.5em;
+    max-width: 450px;
+    margin: 2em auto 1.5em auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#postForm label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.3em;
+}
+
+#postForm input[type="text"],
+#postForm textarea {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.7em;
+    font-size: 1em;
+    font-family: inherit;
+    background: #fff;
+    transition: border 0.2s;
+    resize: vertical;
+}
+
+#postForm input[type="text"]:focus,
+#postForm textarea:focus {
+    border: 1.5px solid #7b5cff;
+    outline: none;
+}
+
+#postForm button[type="submit"] {
+    background: linear-gradient(90deg, #7b5cff 60%, #4e8cff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8em 1.2em;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 0.5em;
+}
+
+#postForm button[type="submit"]:hover {
+    background: linear-gradient(90deg, #4e8cff 60%, #7b5cff 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+#postForm .form-row {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+#postForm .form-row label {
+    margin-bottom: 0;
+    min-width: 50px;
+}
+#postForm .form-row input[type="text"] {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Poszt kártya stílus */
+.post-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(80, 80, 120, 0.08);
+    padding: 1.5em 1.2em;
+    margin-bottom: 2em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: box-shadow 0.2s;
+    border: 1px solid #f0f0f5;
+}
+
+.post-card:hover {
+    box-shadow: 0 4px 24px rgba(80, 80, 120, 0.15);
+}
+
+.post-card h2, .post-card h3 {
+    margin-top: 0;
+    color: #000000;
+    font-size: 1.4em;
+}
+
+.post-card small {
+    color: #888;
+    font-size: 0.95em;
+}
+
+.post-card p {
+    color: #222;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Szerkesztés és törlés gombok stílusa a posztkártyán */
+.post-card .post-btn {
+    display: inline-block;
+    padding: 0.5em 1.1em;
+    margin-right: 0.5em;
+    margin-top: 0.7em;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    box-shadow: 0 1px 4px rgba(80,80,120,0.07);
+}
+
+.post-card .post-btn.edit {
+    background: linear-gradient(90deg, #04fab8 60%, #9e47fa 100%);
+    color: #fff;
+}
+
+.post-card .post-btn.edit:hover {
+    background: linear-gradient(90deg, #4e8cff 60%, #7b5cff 100%);
+    color: #fff;
+}
+
+.post-card .post-btn.delete {
+    background: #fff0f0;
+    color: #e74c3c;
+    border: 1px solid #ffd6d6;
+}
+
+.post-card .post-btn.delete:hover {
+    background: linear-gradient(90deg, #ff0000 60%, #ff0000 100%);
+    color: #ff8072;
+    border: 1px solid #ffb3b3;
+}
+
+.poszto {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1em;
+    font-size: 2.2em;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.asddd {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.posztoltt:hover {
+    background: #f0f0f5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: scale(1.02);
+    transition: all 0.2s;
+}
+
+.posztoltt{
+    background: #e3e3e3;
+    text-align: left;
+    color: black;
+    font-size: 1.1em;
+    margin-bottom: 2em;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 1.5em 1.2em;
+}
+
+.cimke{
+    text-align: center;
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    margin-top: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px 10px;
+    margin-bottom: 1.5em;
+}
+
+.tema{
+    text-align: left;
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 1em;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.datum{
+    display:block;
+    text-align:right;
+    color:#999;
+    font-size:0.9em;
+    margin-top:0.5em;
+    font-style:italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position:down;
+    right: 10px;
+    bottom: 10px;
+    margin-top:10px;
+    margin-bottom:0;
+    margin-right:10px;
+    margin-left:0;
+}
+
+.posztkez{
+    text-align: center;
+    color: #333;
+    margin-bottom: 1em;
+    font-size: 1.8em;
+    display: inline-block;
+    padding: 5px 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: flex;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+
+}
+
+.admfel{
+    text-align: center;
+    color: #333;
+    margin-bottom: 1em;
+    font-size: 2.2em;
+    display: inline-block;
+    padding: 5px 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: flex;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+}
