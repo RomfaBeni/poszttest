@@ -1,5 +1,6 @@
 {
   "database": {
+    "site": "posztest"
     "rules": "database.rules.json"
   },
   "hosting": {
